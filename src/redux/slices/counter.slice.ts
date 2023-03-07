@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { LoginProps } from '../../screens/Login/Login';
 
 export interface CounterState {
-  value: number
+  value: number;
+  isAuthenticated: boolean;
 }
 
 const initialState: CounterState = {
   value: 0,
+  isAuthenticated: false
 }
 
 export const counterSlice = createSlice({
@@ -25,11 +28,17 @@ export const counterSlice = createSlice({
     },
     initialize: (state) => {
       state.value = 0
+    },
+    login: (state) => {
+        state.isAuthenticated = true;
+    },
+    logout: (state) => {
+        state.isAuthenticated = false;
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { trigger, increment, decrement, incrementByAmount, initialize } = counterSlice.actions
+export const { trigger, increment, decrement, incrementByAmount, initialize, login, logout } = counterSlice.actions
 
 export default counterSlice.reducer

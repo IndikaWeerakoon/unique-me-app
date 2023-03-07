@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-uniquemeapp-dev-72431-authRole",
+      "UnauthRoleArn": "arn:aws:iam::978277294715:role/amplify-uniquemeapp-dev-72431-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::978277294715:role/amplify-uniquemeapp-dev-72431-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-uniquemeapp-dev-72431-deployment",
+      "UnauthRoleName": "amplify-uniquemeapp-dev-72431-unauthRole",
+      "StackName": "amplify-uniquemeapp-dev-72431",
+      "StackId": "arn:aws:cloudformation:us-east-1:978277294715:stack/amplify-uniquemeapp-dev-72431/0300bf10-bc8b-11ed-a795-0aa83aaa2937",
+      "AmplifyAppId": "d39qffsco9d9sa"
+    },
+    "categories": {
+      "auth": {
+        "uniquemeappd169e660": {
+          "userPoolId": "us-east-1_VkxV077i3",
+          "userPoolName": "uniqueme-dev-user-pool",
+          "webClientId": "47e7temk8frooq2vss97jppbnp",
+          "nativeClientId": "47e7temk8frooq2vss97jppbnp"
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import Button from "./Button";
 import { View, Text } from "react-native";
 import { Styles } from "./MainStyles";
 import { useDispatch } from "react-redux";
-import { increment, initialize, trigger } from "./redux/slices/counter.slice";
+import { increment, initialize, trigger } from "../redux/slices/counter.slice";
 
 export default function Keypad() {
     const [firstNumber, setFirstNumber] = React.useState("");

@@ -1,49 +1,39 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import Keypad from './src/Keypad';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Calculator from './src/screens/Calculator';
+import Login from './src/screens/Login/Login';
+import {StackPageType} from './src/screens/page.type';
 import { RootState } from './src/redux/store';
+import { Button } from 'react-native';
+import { logout } from './src/redux/slices/counter.slice';
+import { authAction } from './src/redux/slices/auth.slice';
 
-
+const Stack = createNativeStackNavigator<StackPageType>();
 export default function App() {
-  const count = useSelector((state: RootState) => state.counter.value)
-  
+  const dispatch = useDispatch()
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+  function loggedout(): void {
+    dispatch(authAction.logoutTrigger())
+  }
+
   return (
-    <View style={[styles.container,{backgroundColor: 'white'}]}>
-      <View style={styles.toolbar}>
-        <Text style={styles.title}>Calculator</Text>
-        <Text style={styles.counter}> {count}</Text>
-      </View>
-      <Keypad/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login'>
+        {isAuthenticated 
+            ? <Stack.Screen name="Calculator" options={{
+              headerRight: () => (
+                <Button
+                  onPress={() => loggedout()}
+                  title="logout"
+                  color="#555"
+                />
+              ),
+            }} component={Calculator} />
+            : <Stack.Screen name="Login" options={{ headerShown: false }}  component={Login}/>
+        }
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  title:{
-    color:'#666',
-    fontSize:30,
-    textAlign: 'left',
-    paddingStart:20
-  },
-  counter:{
-    color:'#666',
-    fontSize:30,
-    textAlign: 'left',
-    paddingStart:0,
-    paddingEnd: 20
-  },
-  toolbar:{
-    marginTop:10,
-    height:70,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width:'100%'
-  }
-});
