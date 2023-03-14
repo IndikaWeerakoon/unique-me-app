@@ -50,7 +50,7 @@ export default function Login (prop: LoginProps) {
 
     return (
         <View style={[styles.mainView,{backgroundColor: 'white'}]}>
-            <Text style={[styles.logoText]}>Unique Me</Text>
+            <Text style={[styles.logoText]}>Unique MiE</Text>
             <Text style={[styles.loginText]}>Login</Text>
             <TextInput
                 style={styles.input}

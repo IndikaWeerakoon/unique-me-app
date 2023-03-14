@@ -1,4 +1,4 @@
 export type StackPageType = {
-    Calculator: undefined,
+    UserNavigation: undefined,
     Login: undefined
 }

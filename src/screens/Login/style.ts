@@ -10,9 +10,10 @@ export const LoginStyles =StyleSheet.create({
     },
 
     logoText: {
-        fontSize: 25,
+        fontSize: 27,
         marginBottom: 10,
-        fontFamily: 'serif',
+        letterSpacing: 2,
+        fontWeight: "bold",
         color: '#4C0309'
     },
      
